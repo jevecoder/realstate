@@ -24,27 +24,27 @@
 
                 <a href="/home" class="nav-link">Home</a>
                 <a href="/properties" class="nav-link">Properties</a>
-                <a href="#agents" class="nav-link">Agents</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="/agents" class="nav-link">Agents</a>
+                <a href="/contact" class="nav-link">Contact</a>
 
             </div>
 
             <!-- BUTTON + MOBILE -->
             <div class="flex items-center gap-3">
 
-                <button class="hidden md:block px-4 py-2 border border-white/10 rounded-xl hover:border-cyan-400 transition">
-                    Login
-                </button>
+                <button onclick="openAuth()"
+        class="px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold hover:scale-105 transition">
+
+    Login
+
+</button>
 
                 <!-- HAMBURGER -->
                 <button id="menuBtn" class="md:hidden text-2xl">
                     ☰
                 </button>
 
-                <button class="px-5 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-black rounded-xl hover:scale-105 transition">
-                    Get Started
-                </button>
-
+                
             </div>
 
         </div>
@@ -53,8 +53,8 @@
         <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-3 text-gray-300">
             <a href="/home class="nav-link">Home</a>
             <a href="/properties" class="nav-link">Properties</a>
-            <a href="#agents" class="nav-link">Agents</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="/agents" class="nav-link">Agents</a>
+            <a href="/contact" class="nav-link">Contact</a>
         </div>
 
     </div>

@@ -386,10 +386,163 @@ setInterval(() => {
 }, 3000);
 </script>
 
+<script>
+
+let isLogin = true;
+
+function openAuth() {
+    document.getElementById('authModal').classList.remove('hidden');
+}
+
+function closeAuth() {
+    document.getElementById('authModal').classList.add('hidden');
+}
+
+function toggleAuth() {
+
+    const container = document.getElementById('authContainer');
+
+    if (isLogin) {
+        // MOVE TO REGISTER (slide left)
+        container.style.left = "-100%";
+    } else {
+        // BACK TO LOGIN
+        container.style.left = "0%";
+    }
+
+    isLogin = !isLogin;
+}
+
+</script>
+
 <body class="bg-[#0a0f1c] text-white overflow-x-hidden">
 
     @include('partials.navbar')
 
+    <div id="authModal"
+     class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center">
+
+    <div class="relative w-[92%] md:w-[900px] h-[550px] overflow-hidden rounded-[30px] border border-white/10">
+
+        <!-- CONTAINER -->
+        <div id="authContainer"
+             class="absolute w-[200%] h-full flex transition-all duration-700 ease-in-out left-0">
+
+            <!-- LOGIN SIDE -->
+            <div class="w-1/2 h-full flex">
+
+                <!-- FORM -->
+                <div class="w-1/2 bg-[#0a0f1c] p-10 flex flex-col justify-center">
+
+                    <h2 class="text-3xl font-bold text-cyan-400">Login</h2>
+
+                    <p class="text-gray-400 mt-2">Welcome back!</p>
+
+                    <div class="mt-8 space-y-4">
+
+                        <input type="email" placeholder="Email"
+                               class="w-full p-4 rounded-2xl bg-white/5 border border-white/10">
+
+                        <input type="password" placeholder="Password"
+                               class="w-full p-4 rounded-2xl bg-white/5 border border-white/10">
+
+                        <button
+                            class="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold hover:scale-105 transition">
+
+                            Login
+
+                        </button>
+
+                    </div>
+
+                    <p class="text-gray-400 mt-6">
+                        No account?
+                        <button onclick="toggleAuth()"
+                                class="text-cyan-400 font-bold">
+                            Register
+                        </button>
+                    </p>
+
+                </div>
+
+                <!-- IMAGE -->
+                <div class="w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa"
+                         class="w-full h-full object-cover">
+
+                    <div class="absolute inset-0 bg-black/40"></div>
+
+                    <h2 class="absolute bottom-10 left-6 text-white text-3xl font-bold">
+                        Find Your Dream Home
+                    </h2>
+                </div>
+
+            </div>
+
+            <!-- REGISTER SIDE -->
+            <div class="w-1/2 h-full flex">
+
+                <!-- IMAGE (LEFT) -->
+                <div class="w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471"
+                         class="w-full h-full object-cover">
+
+                    <div class="absolute inset-0 bg-black/40"></div>
+
+                    <h2 class="absolute bottom-10 left-6 text-white text-3xl font-bold">
+                        Start Your Journey
+                    </h2>
+                </div>
+
+                <!-- FORM -->
+                <div class="w-1/2 bg-[#0a0f1c] p-10 flex flex-col justify-center">
+
+                    <h2 class="text-3xl font-bold text-cyan-400">Register</h2>
+
+                    <p class="text-gray-400 mt-2">Create your account</p>
+
+                    <div class="mt-8 space-y-4">
+
+                        <input type="text" placeholder="Full Name"
+                               class="w-full p-4 rounded-2xl bg-white/5 border border-white/10">
+
+                        <input type="email" placeholder="Email"
+                               class="w-full p-4 rounded-2xl bg-white/5 border border-white/10">
+
+                        <input type="password" placeholder="Password"
+                               class="w-full p-4 rounded-2xl bg-white/5 border border-white/10">
+
+                        <button
+                            class="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-bold hover:scale-105 transition">
+
+                            Create Account
+
+                        </button>
+
+                    </div>
+
+                    <p class="text-gray-400 mt-6">
+                        Already have account?
+                        <button onclick="toggleAuth()"
+                                class="text-cyan-400 font-bold">
+                            Login
+                        </button>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CLOSE -->
+        <button onclick="closeAuth()"
+                class="absolute top-4 right-5 text-white text-xl z-50">
+            ✕
+        </button>
+
+    </div>
+</div>
     <main>
         @yield('content')
     </main>
